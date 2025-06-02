@@ -125,8 +125,8 @@ def formato2():
             try:
                 monto = float(monto.replace('.', '').replace(',', '.'))
                 numero_completo = '57' + numero.strip()
-                deuda_original = f"{monto:,.3f}".replace(",", ".")
-                deuda_50 = f"{(monto * 0.5):,.3f}".replace(",", ".")
+                deuda_original = f"{int(round(monto)):,}".replace(",", ".") + ".00"
+                deuda_50 = f"{int(round(monto * 0.5)):,}".replace(",", ".") + ".00"
                 ultimos4 = numero[-4:]
                 resultado.append([numero_completo, deuda_original, deuda_50, ultimos4])
                 writer.writerow([numero_completo, deuda_original, deuda_50, ultimos4])
